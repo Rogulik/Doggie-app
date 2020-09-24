@@ -1,25 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{ useReducer } from 'react';
+import './styles/App.scss';
+import Buttons from './components/DoggieButtons';
+import DoggieContext from './context/doggieContext'
+import DoggieReducer from './reducer/doggieReducer'
+import Image from './components/Image'
+import ModalReducer from './reducer/modalReducer';
 
-function App() {
+const App = function App() {
+  const [doggies, dispatchDoggie] = useReducer(DoggieReducer,
+    {
+    singleDoggie: "",
+    doggieList: [],
+    imgList: [],
+    error: {},
+    singleImg: "",
+    isLoading: true
+  })
+
+  const [modal,dispatchModal] = useReducer(ModalReducer,{
+    modalControl: false
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DoggieContext.Provider className="App" value={{doggieState: {doggies,dispatchDoggie}, modalState: {modal,dispatchModal}}}>
+        <h1 className='header'>Doggie App!</h1>
+        <Image />
+        <Buttons />
+    </DoggieContext.Provider>
   );
 }
 

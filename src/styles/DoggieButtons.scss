@@ -1,0 +1,20 @@
+.buttons{
+    &__container{
+        margin-top: 3rem;
+    }
+
+    &__item{
+        padding: 10px;
+        font-weight: 700;
+        margin: 3px;
+        border: none;
+        background-color: #d9adad;
+        color: white; 
+        
+
+        &:hover{
+            background-color: #fccbcb;
+            cursor: pointer;
+        }
+    }
+}

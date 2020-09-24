@@ -1,0 +1,25 @@
+.image{
+    height: 100%;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+    &__displayed{
+        &-item{
+          width: 320px;
+        }
+    }
+    &__buttons{
+        margin-bottom: 10px;
+        &-item{
+            background-color: #f56a79;
+            color: white;
+            font-size: 1rem;
+            &:hover{
+                background-color: #ff414d;
+            }
+        }
+    }
+}
